@@ -1,10 +1,10 @@
 import { Router } from "../deps.ts";
-import { getAllUsers, createUser } from "../controllers/users.ts";
+import { getAllUsersHandler, createUserHandler } from "../controllers/users.ts";
 
 const router = new Router();
 
 router
-  .get("/users", getAllUsers)
-  .post("/users", createUser);
+  .get("/users", getAllUsersHandler)
+  .post("/users", createUserHandler);
 
 export default router;

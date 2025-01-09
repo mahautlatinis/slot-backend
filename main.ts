@@ -1,6 +1,6 @@
 import { Application } from "./deps.ts";
 import userRoutes from "./routes/users.ts";
-import { connectDB } from "./database/client.ts";
+import { connectDB } from "./database/connection.ts";
 
 const app = new Application();
 await connectDB();

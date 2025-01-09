@@ -71,3 +71,15 @@ psql -U postgres -d deno_users -h localhost -p 5432
 ```sh
 tail -f /usr/local/var/log/postgresql.log
 ```
+
+# Installing dependencies
+
+``sh
+deno install npm:drizzle-orm npm:drizzle-kit npm:pg npm:@types/pg
+```
+
+### Drizzle
+Si la base de donnée et/ou des tables existes, on peut inspecter le schema et generer des fichiers TS automatiquement : 
+```sh
+deno --env -A --node-modules-dir npm:drizzle-kit pull
+```

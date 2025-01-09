@@ -1,21 +1,17 @@
-import { bcrypt, Context } from "../deps.ts";
-import { getDBClient } from "../database/client.ts";
+import { Context } from "../deps.ts";
+import { getAllUsers, createUser } from "../services/userService.ts";
+import { bcrypt } from "../deps.ts";
 
-export const getAllUsers = async (ctx: Context) => {
-  const client = getDBClient();
-  const result = await client.queryObject("SELECT id, first_name, last_name FROM users;");
-  ctx.response.body = result.rows;
+export const getAllUsersHandler = async (ctx: Context) => {
+  const users = await getAllUsers();
+  ctx.response.body = users;
 };
 
-export const createUser = async (ctx: Context) => {
-  const { first_name, last_name, password } = await ctx.request.body().value;
+export const createUserHandler = async (ctx: Context) => {
+  const { firstName, lastName, password } = await ctx.request.body().value;
   const hashedPassword = await bcrypt.hash(password);
 
-  const client = getDBClient();
-  await client.queryObject(
-    "INSERT INTO users (first_name, last_name, password) VALUES ($1, $2, $3);",
-    [first_name, last_name, hashedPassword],
-  );
+  await createUser(firstName, lastName, hashedPassword);
 
   ctx.response.body = { message: "User created!" };
 };
