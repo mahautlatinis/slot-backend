@@ -8,5 +8,10 @@
     "drizzle-orm": "npm:drizzle-orm@^0.38.3",
     "pg": "npm:pg@^8.13.1",
     "postgres": "npm:postgres@^3.4.5"
+  },
+  "tasks": {
+    "db:generate": "deno --env -A --node-modules-dir npm:drizzle-kit generate",
+    "db:migrate": "deno -A --env ./drizzle.migrate.ts",
+    "db:studio": "deno --env -A --node-modules-dir npm:drizzle-kit studio"
   }
 }

@@ -4,10 +4,8 @@ export default defineConfig({
   out: "./drizzle",
   schema: "./src/db/schema.ts",
   dialect: "postgresql",
-  driver: "pg",
   dbCredentials: {
-    /* url: Deno.env.DATABASE_URL, */
-    connectionString: Deno.env.DATABASE_URL as string
+    url: "postgresql://postgres:postgres@localhost:5432/deno_users",// A corriger
   },
   verbose: true,
   strict: true
