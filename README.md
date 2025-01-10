@@ -1,13 +1,8 @@
 # slot-backend
 
-deps.ts: centralise les imports des modules tiers.
-mod.ts: point d'entrée du projet.
-main.ts: fichier principal de l'application. 
-
-
 ##### Lancer le projet
 ```sh
-deno run --allow-net --allow-env --allow-read main.ts
+deno -A --env ./src/index.ts
 ```
 
 ##### Exécuter une migration ou un seed 
@@ -119,13 +114,27 @@ deno --env -A --node-modules-dir npm:drizzle-kit pull
 ```
 
 Générer un fichier de migration
+
 Voir documentation drizzle 
 https://orm.drizzle.team/docs/get-started/postgresql-new
 
-Attention entre node et deno
+Générer un fichier de migration
 ```sh
-deno --env -A --node-modules-dir npm:drizzle-kit push
-deno --env -A --node-modules-dir npm:drizzle-kit generate
+deno task db:generate
+```
+
+Appliquer la migration sur la base de donnée
+``sh
+deno task db:migrate
+```
+Afficher le drizzle studio
+```sh
+deno task db:studio
+```
+
+Supprimer une migration : 
+```sh
+npx drizzle-kit drop
 ```
 
 A revoir 
