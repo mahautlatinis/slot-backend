@@ -5,7 +5,7 @@ export default defineConfig({
   schema: "./src/db/schema.ts",
   dialect: "postgresql",
   dbCredentials: {
-    url: "postgresql://postgres:postgres@localhost:5432/deno_users",// A corriger
+    url: "postgresql://postgres:postgres@localhost:5432/deno_users" as string,// A corriger
   },
   verbose: true,
   strict: true
