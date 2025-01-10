@@ -12,6 +12,6 @@
   "tasks": {
     "db:generate": "deno --env -A --node-modules-dir npm:drizzle-kit generate",
     "db:migrate": "deno -A --env ./drizzle.migrate.ts",
-    "db:studio": "deno --env -A --node-modules-dir npm:drizzle-kit studio"
+    "db:studio": "npm drizzle-kit studio"
   }
 }
