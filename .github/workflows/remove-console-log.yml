@@ -1,4 +1,4 @@
-name: Deploy
+name: Remove console-log
 on:
   push:
     tags:
@@ -16,5 +16,3 @@ jobs:
           find: "console\.log\(([^)]+)\)"
           replace: ""
           regex: true
-
-      # deployment steps
