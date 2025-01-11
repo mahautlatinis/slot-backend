@@ -73,10 +73,6 @@ Afficher les bases de données
 
 Afficher une base de donnée et ses tables
 ```sql
-\c deno_users
-\dt
-
-// ou
 SELECT table_name
 FROM information_schema.tables
 WHERE table_schema = 'public';
@@ -124,7 +120,7 @@ deno task db:generate
 ```
 
 Appliquer la migration sur la base de donnée
-``sh
+```sh
 deno task db:migrate
 ```
 Afficher le drizzle studio
