@@ -101,7 +101,17 @@ psql -U postgres -d deno_users -h localhost -p 5432
 tail -f /usr/local/var/log/postgresql.log
 ```
 
-# Installing dependencies
+## Deno
+Jsr est le package manager recommandé / créé par l'équipe derrière deno. 
+Deno possède une "std library" (un peu à l'image de celle en C) qui permet par exemple toKebabCase() sans avoir à utiliser une library telle que Lodash. 
+(@std/text).
+
+### flags and commands 
+1. Use flag '-A' to bypass permissions
+2. Use '--watch' to replace nodemon
+3. To format the code (without Prettier), use 'deno fmt'
+4. To lint the code, use 'deno lint' instead of eslint
+### Installing dependencies
 
 ```sh
 deno install npm:drizzle-orm npm:drizzle-kit npm:pg npm:@types/pg
